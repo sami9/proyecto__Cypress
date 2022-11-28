@@ -1,0 +1,9 @@
+{
+    "email": "admin@test.com",
+    "email2" : "perrito@test.com",
+    "email3" : "Riley@yourstore.com",
+    "password" : "admin",
+    "newsletter" : "Your store name",
+    "taxExempt" :"true"
+
+}
