@@ -12,15 +12,17 @@ describe("Mi primer Test Suite", function () {
     });
 
 // Método usado para llenar el formulario desde un Json un fixxure
-    it("Verificar que puedo agregar un cliente (customer)", function () {
+    it.only("Verificar que puedo agregar un cliente (customer)", function () {
         cy.typeLogin({ email: "admin@yourstore.com", password: 'admin' })
         customerP.goToCustomers()
-        // Llenar formulario
-        customerP.getEmail().type(this.data.email)
-        customerP.getPassword().type(this.data.password)
-        customerP.selectNewsLetter(this.data.newsletter)
-        customerP.getTaxExempt().check(this.data.taxExempt)
-        
+        // Llenar formulario utilizando fixtures
+        // customerP.getEmail().type(this.data.email)
+        // customerP.getPassword().type(this.data.password)
+        // customerP.selectNewsLetter(this.data.newsletter)
+        // customerP.getTaxExempt().check(this.data.taxExempt)
+
+        // Llenar formularios utilizando elements.
+        customerP.FillCustomer();
     })
 
 //// Método usado para llenar el formulario desde un Json
@@ -45,7 +47,7 @@ describe("Mi primer Test Suite", function () {
 
  
     //Metodo para recorrer una tabla
-    it.only("Buscar en tablas", function () {
+    it("Buscar en tablas", function () {
         cy.typeLogin({ email: "Admin@yourstore.com", password: 'admin' })
         cy.get('#nopSideBarPusher').click()
         cy.get(':nth-child(4) > [href="#"] > p').click()

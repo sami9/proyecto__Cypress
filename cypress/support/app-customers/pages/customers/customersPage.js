@@ -1,8 +1,19 @@
 class customersPage {
-    getEmail() { return cy.get("#Email"); }
-    getPassword() { return cy.get("#Password"); }
-    getName() { return cy.get('#FirstName')}
-    getTaxExempt() { return cy.get("#IsTaxExempt"); }
+
+    elements = {
+        getEmail: () => cy.get("#Email"),
+        getPassword: () => cy.get("#Password"),
+        getName: () => cy.get("#FirstName"),
+        getTaxExempt: () => cy.get("#IsTaxExempt"),
+    }
+
+    FillCustomer() {
+        this.elements.getEmail().type("RegressionTest@test.com");
+        this.elements.getPassword().type("1245");
+        this.elements.getName().type("Regression Test");
+        this.elements.getTaxExempt().check("true");
+        this.selectNewsLetter("Your store name");
+    }
 
     goToCustomers() {
         cy.get('#nopSideBarPusher').click()
